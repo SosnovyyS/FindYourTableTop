@@ -28,11 +28,6 @@ namespace Test.Controllers
             return View();
         }
 
-        public IActionResult Create()
-        {
-            return LocalRedirect("~/Forms/CreateConfirm");
-        }
-
         public IActionResult Privacy()
         {
             return View();
