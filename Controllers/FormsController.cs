@@ -22,15 +22,16 @@ namespace Test.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Search(ViewSearcher Searcher)
+        public async Task<IActionResult> Search(ViewSearcher SearchData)
         {
-            //db.ViewSearcher.Add(Searcher);
-            await db.SaveChangesAsync();
-            return Redirect("~/List");
-        }
-        public async Task<IActionResult> List()
-        {
-            return View(await db.Forms.ToListAsync());
+            SearchData.Players = new List<Form>();
+            foreach (Form Anketa in db.Forms.ToList()) {
+                if (Anketa.System == SearchData.SearchingSystem)
+                {
+                    SearchData.Players.Add(Anketa);
+                };
+            };
+            return View("List", SearchData);
         }
         public IActionResult Create()
         {
@@ -41,7 +42,7 @@ namespace Test.Controllers
         {
             db.Forms.Add(form);
             await db.SaveChangesAsync();
-            return RedirectToAction("CreateConfirm"); ;
+            return RedirectToAction("CreateConfirm");
         }
         public IActionResult CreateConfirm()
         {

@@ -1,14 +1,10 @@
-﻿@using (Html.BeginForm("Create", "Home", FormMethod.Post))
-{
-    <p>
-        <label>Имя</label><br />
-        @Html.TextBox("System")
-    </p>
-    <p>
-        <label>Возраст</label><br />
-        @Html.TextBox("", "", new { type = "number" })
-    </p>
-    <p>
-        <input type="submit" value="Отправить" />
-    </p>
-}
+﻿@model Test.ViewModels.ViewSearcher
+<form asp-action="Search" asp-controller="forms">
+    <div class="form-group">
+        <label asp-for="SearchingSystem" class="control-label">Система</label>
+        <input type="text" asp-for="SearchingSystem" class="form-control" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Искать" class="btn btn-outline-success" />
+    </div>
+</form>

@@ -1,8 +1,9 @@
-﻿@model IEnumerable<Test.Models.Form>
-    <table class="table">
-        <tr><td>Имя</td><td>Возраст</td></tr>
-        @foreach (var item in Model)
-        {
-            <tr><td>@item.Name</td><td>@item.Age</td></tr>
-        }
-    </table>
+﻿@model Test.ViewModels.ViewSearcher
+
+<table class="table">
+    <tr><td>Имя</td><td>Возраст</td><td>Контакты</td></tr>
+    @foreach (var item in Model.Players)
+    {
+        <tr><td>@item.Name</td><td>@item.Age</td><td>@item.Contact</td></tr>
+    }
+</table>
