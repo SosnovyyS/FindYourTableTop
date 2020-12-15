@@ -17,6 +17,10 @@ namespace Test.Controllers
         {
             db = context;
         }
+        public IActionResult GetList(Form form)
+        {
+            return PartialView("FormList",form);
+        }
         public IActionResult Search()
         {
             return View();

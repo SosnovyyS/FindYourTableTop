@@ -4,6 +4,6 @@
     <tr><td>Имя</td><td>Возраст</td><td>Контакты</td></tr>
     @foreach (var item in Model.Players)
     {
-        <tr><td>@item.Name</td><td>@item.Age</td><td>@item.Contact</td></tr>
-    }
+        @await Html.PartialAsync("FormList", item);
+   }
 </table>
